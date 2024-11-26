@@ -17,8 +17,7 @@
 
         <activity
             android:name="com.framework.views.activities.CountryActivity"
-            android:exported="true"
-            tools:ignore="Instantiatable">
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

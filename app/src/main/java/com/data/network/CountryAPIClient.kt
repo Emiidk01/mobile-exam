@@ -11,12 +11,12 @@ class CountryAPIClient {
     suspend fun getCovidData(apiKey: String): List<CasesObject>? {
         return withContext(Dispatchers.IO) {
             try {
-                val response = apiService.getCovidData(apiKey).execute()
+                val response = apiService.getCovidData(apiKey.trim()).execute()
                 if (response.isSuccessful) {
                     println("API Client - Successful response: ${response.body()}")
                     response.body()
                 } else {
-                    println("API Client - Response not successful: ${response.errorBody()}")
+                    println("API Client - Response not successful: ${response.errorBody()?.string()}")
                     emptyList()
                 }
             } catch (e: Exception) {

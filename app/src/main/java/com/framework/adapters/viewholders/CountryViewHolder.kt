@@ -1,6 +1,7 @@
 package com.framework.adapters.viewholders
 
 //noinspection SuspiciousImport
+import android.annotation.SuppressLint
 import android.view.View
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
@@ -13,10 +14,11 @@ class CountryViewHolder(view: View) : RecyclerView.ViewHolder(view) {
     private val totalCases: TextView = view.findViewById(R.id.tv_casos_totales)
     private val newCases: TextView = view.findViewById(R.id.tv_casos_nuevos)
 
+    @SuppressLint("SetTextI18n")
     fun render(casesModel: CasesObject) {
-        regionName.text = casesModel.region
-        date.text = casesModel.cases.keys.first()
-        totalCases.text = casesModel.cases.values.first().totalCases.toString()
-        newCases.text = casesModel.cases.values.first().newCases
+        regionName.text = "Region: ${casesModel.region}"
+        date.text = "Fecha: ${casesModel.cases.keys.first()}"
+        totalCases.text = "Casos Totales: ${casesModel.cases.values.first().totalCases}"
+        newCases.text = "Casos Nuevos: ${casesModel.cases.values.first().newCases}"
     }
 }

@@ -10,6 +10,10 @@ import androidx.viewbinding.ViewBinding
 import com.example.kotlin.examen.databinding.ActivityCountryBinding
 import com.framework.adapters.CountryAdapter
 import com.framework.viewmodel.CountryViewModel
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import retrofit2.http.Query
 
 class CountryActivity: AppCompatActivity() {
 
@@ -22,7 +26,7 @@ class CountryActivity: AppCompatActivity() {
         setContentView(binding.root)
         initRecyclerView()
         observeViewModel()
-        viewModel.getCovidData("rMDOQVSAOpHab3I65cqxlg==EkwityQtbSIhyAiB\n")
+        viewModel.getCovidData("rMDOQVSAOpHab3I65cqxlg==EkwityQtbSIhyAiB")
     }
 
     private fun initRecyclerView() {
@@ -34,6 +38,4 @@ class CountryActivity: AppCompatActivity() {
             binding.rvCountries.adapter = countryList?.let { CountryAdapter(it) }
         })
     }
-
-
 }
